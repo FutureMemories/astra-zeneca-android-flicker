@@ -13,7 +13,6 @@ import se.futurememories.flickery.networking.Response
 import kotlin.coroutines.CoroutineContext
 
 class FlickerViewModel(application: Application): AndroidViewModel(application), CoroutineScope {
-//    private val supervisorJob = SupervisorJob()
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Default
 

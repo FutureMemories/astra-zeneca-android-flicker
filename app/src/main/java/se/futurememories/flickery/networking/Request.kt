@@ -6,18 +6,17 @@ import com.google.gson.reflect.TypeToken
 import java.net.URL
 import javax.net.ssl.HttpsURLConnection
 
-class Request<out T>(
-    val uri: Uri,
-    var method: String = "GET"
+class Request(
+    private val uri: Uri,
+    private var method: String = "GET"
 ) {
 
     inline fun <reified T : Any> fetch(): Response<T> {
         val connection = getConnection()
         val responseCode = connection.responseCode
-        when {
-            responseCode == 200 -> {
-                val success = handleSuccess<T>(connection)
-                return success
+        when (responseCode) {
+            200 -> {
+                return handleSuccess(connection)
             }
             else -> {
                 return Response.Error(FlickrErrors.INTERNAL_SERVER_ERROR)

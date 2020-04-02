@@ -31,7 +31,7 @@ class PhotosRecyclerAdapter(
         holder.bind(photos[position], onClickPhoto)
     }
 
-    class PhotoHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    class PhotoHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(photo: Photo, onClickPhoto: (photo: Photo) -> Unit) = with(view) {
             setOnClickListener { onClickPhoto(photo) }
             Glide.with(this)

@@ -33,7 +33,7 @@ object API {
                 }
             }.build()
 
-        val request = Request<FlickerResponse>(uri)
+        val request = Request(uri)
         val response = request.fetch<FlickerResponse>()
         when (response) {
             is Response.Success -> {

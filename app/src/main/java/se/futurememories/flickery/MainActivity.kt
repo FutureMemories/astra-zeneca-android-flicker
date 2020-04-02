@@ -17,12 +17,12 @@ import se.futurememories.flickery.viewmodels.FlickerViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    var mPhotosAdapter: PhotosRecyclerAdapter? = null
-    var mPage = 1
-    var mPhotosAreLoading = false
+    private var mPhotosAdapter: PhotosRecyclerAdapter? = null
+    private var mPage = 1
+    private var mPhotosAreLoading = false
 
 
-    val flickerViewModel: FlickerViewModel by lazy {
+    private val flickerViewModel: FlickerViewModel by lazy {
         ViewModelProvider(this)[FlickerViewModel::class.java]
     }
 
@@ -81,11 +81,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             is Response.Error -> {
-                //TODO : alert dialog
                 val message = FlickrErrors.getErrorMessage(this, response)
                 AlertDialog.Builder(this)
                     .setTitle(getString(R.string.error))
                     .setMessage(message)
+                    .show()
             }
         }
     }
