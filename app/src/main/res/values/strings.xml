@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Flickery</string>
+    <string name="error_no_tags">You must enter a search term</string>
+    <string name="error_unknown">Unknown Error occurred</string>
+    <string name="error_internal_server">Our servers are acting up, please try again later</string>
+    <string name="error_no_network">Please connect to the internet</string>
+    <string name="error">Error</string>
+</resources>
